@@ -1,0 +1,24 @@
+# will be storing all the configurations
+
+param:
+  epochs: 30
+  batch_size: 32
+  num_classes: 10
+  input_shape: [28,28]
+  loss_function: parse_categorical_crossentropy
+  matrics: accuracy
+  validation_size: 5000
+  patience: 5
+  optimizer: SGD
+
+artifects:
+  artifects_dir: artifects
+  model_dir: model
+  plots_dir: plots
+  checkpoint_dir: checkpoints
+
+logs:
+  log_dir: logs_dir
+  general_logs: general_logs
+  tensorboard_logs: tensorflow_logs
+
