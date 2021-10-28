@@ -1,4 +1,4 @@
-from os import setgroups
+from os import setup
 
 
 with open("README.MD", "r", encoding="utf-8") as fh:
