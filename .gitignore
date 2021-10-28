@@ -50,6 +50,10 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+.vscode/
+.idea/
+ANN_Env
+
 
 # Translations
 *.mo
