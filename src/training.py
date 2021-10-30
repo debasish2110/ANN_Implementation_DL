@@ -1,7 +1,7 @@
 import os
 from utils.common import read_config
 from utils.data_Management import get_data
-from utils.model import create_model
+from utils.model import create_model, save_model
 import argparse
 
 def training(config_path):
@@ -24,6 +24,17 @@ def training(config_path):
     VALIDATION_SET=(x_valid, y_valid)
 
     history = ann_model.fit(x_train, y_train, epochs=EPOCHS, validation_data=VALIDATION_SET)
+
+    # svving the model
+    artifect_dir = config['artifects']['artifects_dir']
+    model_name = config['artifects']['model_name']
+    model_dir = config['artifects']['model_dir']
+
+    model_dir_path = os.path.join(artifect_dir, model_dir)
+
+    os.makedirs(model_dir_path, exist_ok=True)
+
+    save_model(ann_model, model_name, model_dir_path)
 
 
 if __name__ == '__main__':

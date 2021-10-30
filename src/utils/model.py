@@ -1,4 +1,6 @@
 import tensorflow as tf
+import time
+import os
 
 def create_model(LOSS_FUNCTION, OPTIMIZER, METRICS, NUM_CLASSES):
     LAYERS = [
@@ -13,3 +15,23 @@ def create_model(LOSS_FUNCTION, OPTIMIZER, METRICS, NUM_CLASSES):
     model_clf.compile(loss=LOSS_FUNCTION, optimizer=OPTIMIZER, metrics=METRICS)
 
     return model_clf
+
+
+
+def get_unique_filename(file_name):
+    """
+    Get a unique filename
+    """
+    unique_filename= time.strftime(f"_%y%m%d_%H%M%S_{file_name}")
+    # .h5 is the format used by keras to save the modeel
+    return unique_filename
+
+
+# Save the model
+def save_model(model, model_name, model_dir):
+    """
+    Save the model
+    """
+    unique_filename = get_unique_filename(model_name)
+    path_to_model = os.path.join(model_dir, unique_filename)
+    model.save(path_to_model) 
