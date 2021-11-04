@@ -10,6 +10,7 @@ params:
   validation_data_size: 5000
   patience: 5
   optimizer: SGD
+  restore_best_weights: True
 
 artifects:
   artifects_dir: artifects
@@ -21,5 +22,5 @@ artifects:
 logs:
   log_dir: logs_dir
   general_logs: general_logs
-  tensorboard_logs: tensorflow_logs
+  TENSORBOARD_ROOT_LOG_DIR: tensorboard_logs
 

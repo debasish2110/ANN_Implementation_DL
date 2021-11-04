@@ -2,6 +2,7 @@ import os
 from utils.common import read_config
 from utils.data_Management import get_data
 from utils.model import create_model, save_model
+from utils.callbacks import get_callbacks
 import argparse
 
 def training(config_path):
@@ -23,7 +24,10 @@ def training(config_path):
     EPOCHS=config['params']['epochs']
     VALIDATION_SET=(x_valid, y_valid)
 
-    history = ann_model.fit(x_train, y_train, epochs=EPOCHS, validation_data=VALIDATION_SET)
+    # create callbacks
+    CALLBACK_LIST = get_callbacks(config, x_train)
+
+    history = ann_model.fit(x_train, y_train, epochs=EPOCHS, validation_data=VALIDATION_SET, callbacks=CALLBACK_LIST)
 
     # svving the model
     artifect_dir = config['artifects']['artifects_dir']

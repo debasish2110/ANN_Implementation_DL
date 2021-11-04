@@ -4,6 +4,3 @@ tensorflow
 matplotlib
 seaborn
 
-
-## Local Installation
-.e ### <<< To install the packages locally
